@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grade Calculator</title>
+        <!--css file-->
+        <link rel="stylesheet"href="C:\Users\Dell\Desktop\frontend.gs\task\clc style.css">
+
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="left-box">
+                <h1>result</h1>
+                <div class="p-g-t">
+                    <h2>percentage- <span class="per"></span></h2>
+                    <h2>grade- <span class="gra"></span></h2>
+                    <h2>total- <span class="to"></span></h2>
+                    
+                </div>
+            </div>
+            <div class="content">
+                <div class="right-box">
+                    <input type="number" id="t" placeholder="tamil"/>
+                    <input type="number" id="e" placeholder="english"/>
+                    <input type="number" id="m" placeholder="maths"/>
+                    <input type="number" id="s" placeholder="science"/>
+                    <input type="number" id="so" placeholder="social"/>
+                    <button type="button" onclick="show_result()">show result</button>
+                </div>
+            </div>
+            <div class="result">
+                <h2></h2>
+            </div>
+        </div>
+        <script>
+            function show_result(){
+                let t=document.querySelector("#t").value;
+                let e=document.querySelector("#e").value;
+                let m=document.querySelector("#m").value;
+                let s=document.querySelector("#s").value;
+                let so=document.querySelector("#so").value;
+
+                let to=parseFloat(t)+parseFloat(e)+parseFloat(m)+parseFloat(s)+parseFloat(so);
+                let per = (to * 100) /500;
+
+                if(per >= 90){
+                    let a1=document.querySelector(".gra").innerHTML="a+";
+                    let pgt=document.querySelector(".p-g-t")
+                    pgt.children[1].innerText=`grade-${a1}`;
+
+                }else if(per >= 80){
+                    let a1=document.querySelector(".gra").innerHtml="a";
+                    let pgt=document.querySelector(".p-g-t")
+                    pgt.children[1].innerText=`grade-${a1}`;
+                }else if(per >= 70){
+                    let a1=document.querySelector(".gra").innerHtml="b+";
+                    let pgt=document.querySelector(".p-g-t")
+                    pgt.children[1].innerText=`grade-${a1}`;
+                }else if(per >= 60){
+                    let a1=document.querySelector(".gra").innerHtml="b";
+                    let pgt=document.querySelector(".p-g-t")
+                    pgt.children[1].innerText=`grade-${a1}`;
+                }else if(per >= 50){
+                    let a1=document.querySelector(".gra").innerHtml="c+";
+                    let pgt=document.querySelector(".p-g-t")
+                    pgt.children[1].innerText=`grade-${a1}`;
+                }else if(per >= 40){
+                    let a1=document.querySelector(".gra").innerHtml="c";
+                    let pgt=document.querySelector(".p-g-t")
+                    pgt.children[1].innerText=`grade-${a1}`;
+                }else if(per >= 35){
+                   let a1= document.querySelector(".gra").innerHtml="d+";
+                    let pgt=document.querySelector(".p-g-t")
+                    pgt.children[1].innerText=`grade-${a1}`;
+                }else if(per >= 30){
+                   let a1= document.querySelector(".gra").innerHtml="d";
+                    let pgt=document.querySelector(".p-g-t")
+                    pgt.children[1].innerText=`grade-${a1}`;
+                }else{
+                    document.querySelector(".gra").innerHTML="Yor Are Fail";
+    
+                }
+
+                document.querySelector(".to").innerHTML=to;
+                document.querySelector(".per").innerHTML=per;
+
+                if(per >30){
+                    document.querySelector(".result h2").innerHTML="Your Are Pass";
+                }
+            }
+        </script>
+    </body>
+</html>  
